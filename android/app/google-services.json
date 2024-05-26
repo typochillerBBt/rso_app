@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "670321930391",
+    "project_id": "theatre-app-ea8b4",
+    "storage_bucket": "theatre-app-ea8b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670321930391:android:58be2624ec8490dcf739d2",
+        "android_client_info": {
+          "package_name": "com.example.theatre_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjFH21ptdtF6UFNADJnXjpDgrbWFs7JsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
