@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:theatre_app/screens/SquadDetailScreen.dart';
+import 'package:theatre_app/screens/squad_detail_screen.dart';
 
 class TabSquads extends StatelessWidget {
   const TabSquads({Key? key}) : super(key: key);

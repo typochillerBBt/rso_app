@@ -111,8 +111,8 @@ class TabInfo extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 30,
-            backgroundColor: Color(0xFFD24925).withOpacity(0.3),
-            child: Icon(icon, size: 30, color: Color(0xFFD24925)),
+            backgroundColor: const Color(0xFFD24925).withOpacity(0.3),
+            child: Icon(icon, size: 30, color: const Color(0xFFD24925)),
           ),
           const SizedBox(height: 8),
           Text(

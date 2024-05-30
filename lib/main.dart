@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
       darkTheme: CustomButtonsTheme.darkTheme,
       themeMode: ThemeMode.system,
       routes: {
-        //'/splash': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignUpScreen(),
         '/stream': (context) => const FirebaseStream(),

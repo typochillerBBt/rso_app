@@ -184,11 +184,6 @@ class _NewsTabState extends State<NewsTab> {
     );
   }
 
-  Future<void> _requestPermissions() async {
-    await Permission.photos.request();
-    await Permission.camera.request();
-  }
-
   // Функция добавления новости в базу данных
   void _addNews(String title, String content, String photoUrl, bool isEvent) {
     FirebaseFirestore.instance.collection('news').add({

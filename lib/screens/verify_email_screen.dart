@@ -59,7 +59,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
 
       setState(() => canResendEmail = true);
     } catch (e) {
-      print(e);
       if (mounted) {
         SnackBarService.showSnackBar(
           context,
