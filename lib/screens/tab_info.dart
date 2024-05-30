@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:theatre_app/screens/InfoDetailPage/HistoryPage.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'InfoDetailPage/AboutUsPage.dart';
 
 class TabInfo extends StatelessWidget {
   const TabInfo({Key? key}) : super(key: key);
@@ -17,7 +14,7 @@ class TabInfo extends StatelessWidget {
           children: [
             const SizedBox(height: 40),
             const Text(
-              'Калининградское региональное\nотделение МООО "РСО"',
+              'Молодежная общероссийская общественная организация «Российские Студенческие Отряды»',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
@@ -29,48 +26,54 @@ class TabInfo extends StatelessWidget {
             _buildRow(context, [
               _buildGridItem(
                 context,
-                icon: Icons.schedule,
+                icon: Icons.people,
                 label: 'О нас',
-                onTap: () => _navigateToPage(context, 'О нас'),
+                onTap: () => _launchURL(
+                    'https://трудкрут.рф/o_rossiyskikh_studencheskikh_otryadakh.html'),
               ),
               _buildGridItem(
                 context,
-                icon: Icons.question_answer,
+                icon: Icons.history,
                 label: 'История',
-                onTap: () => _navigateToPage(context, 'История'),
+                onTap: () =>
+                    _launchURL('https://трудкрут.рф/about_us/istoriya.html'),
               ),
               _buildGridItem(
                 context,
-                icon: Icons.mic,
+                icon: Icons.eco,
                 label: 'Проекты',
-                onTap: () => _navigateToPage(context, 'Проекты'),
+                onTap: () => _launchURL(
+                    'https://трудкрут.рф/deyatelnost/sotsialnye_proekty.html'),
               ),
             ]),
             const SizedBox(height: 20),
             _buildRow(context, [
               _buildGridItem(
                 context,
-                icon: Icons.schedule,
+                icon: Icons.construction,
                 label: 'Структура',
-                onTap: () => _navigateToPage(context, 'Структура'),
+                onTap: () => _launchURL(
+                    'https://трудкрут.рф/about_us/rukovodyashchie_organy.html'),
               ),
               _buildGridItem(
                 context,
-                icon: Icons.question_answer,
+                icon: Icons.document_scanner,
                 label: 'Основные документы',
-                onTap: () => _navigateToPage(context, 'Основные документы'),
+                onTap: () =>
+                    _launchURL('https://трудкрут.рф/about_us/dokumenty.html'),
               ),
               _buildGridItem(
                 context,
-                icon: Icons.mic,
+                icon: Icons.contact_page,
                 label: 'Контакты',
-                onTap: () => _navigateToPage(context, 'Контакты'),
+                onTap: () => _launchURL(
+                    'https://трудкрут.рф/kontakty/map/szfo/kaliningradskaya-oblast'),
               ),
             ]),
             const SizedBox(height: 40),
             Center(
               child: ElevatedButton(
-                onPressed: () => _launchURL('https://vk.com/rso39?w=app6013442_-9737205%2523form_id%253D1'),
+                onPressed: () => _launchURL('https://vk.com/rso39'),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: const Color(0xFFD24925),
@@ -78,7 +81,7 @@ class TabInfo extends StatelessWidget {
                     borderRadius: BorderRadius.circular(32.0),
                   ),
                   padding:
-                  const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   elevation: 0,
                 ),
                 child: const Text(
@@ -102,8 +105,8 @@ class TabInfo extends StatelessWidget {
 
   Widget _buildGridItem(BuildContext context,
       {required IconData icon,
-        required String label,
-        required VoidCallback onTap}) {
+      required String label,
+      required VoidCallback onTap}) {
     return GestureDetector(
       onTap: onTap,
       child: Column(
@@ -121,28 +124,6 @@ class TabInfo extends StatelessWidget {
             style: const TextStyle(color: Color(0xFFD24925), fontSize: 12),
           ),
         ],
-      ),
-    );
-  }
-
-  void _navigateToPage(BuildContext context, String pageTitle) {
-    Widget page;
-
-    switch (pageTitle) {
-      case 'О нас':
-        page = const AboutUsPage();
-        break;
-      case 'История':
-        page = const HistoryPage();
-        break;
-      default:
-        page = InfoDetailPage(title: pageTitle);
-    }
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => page,
       ),
     );
   }

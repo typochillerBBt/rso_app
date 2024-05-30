@@ -67,7 +67,7 @@ class SquadDetailScreen extends StatelessWidget {
                     child: Text(
                       description,
                       style: const TextStyle(color: Colors.black, fontSize: 16),
-                      textAlign: TextAlign.start,
+                      textAlign: TextAlign.justify,
                     ),
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
 
@@ -154,6 +155,12 @@ class _AccountScreenState extends State<AccountScreen> {
     );
   }
 
+  void _launchURL(String url) async {
+    if (!await launch(url)) {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -212,9 +219,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     child: TextButton.icon(
                       icon: const Icon(Icons.feedback_outlined, color: Color(0xFF012E58)),
                       label: const Text('Обратная связь', style: TextStyle(color: Color(0xFF012E58), decoration: TextDecoration.none)),
-                      onPressed: () {
-                        // Действие при нажатии на кнопку
-                      },
+                      onPressed: () => _launchURL('https://forms.yandex.ru/u/6658c71df47e7311a08f86c3/'),
                     ),
                   ),
                   const SizedBox(height: 10),
