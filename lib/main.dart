@@ -8,7 +8,6 @@ import 'package:theatre_app/screens/signup_screen.dart';
 import 'package:theatre_app/screens/verify_email_screen.dart';
 import 'package:theatre_app/services/firebase_streem.dart';
 import 'firebase_options.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'CustomButtonsTheme.dart';
 
 void main() async {

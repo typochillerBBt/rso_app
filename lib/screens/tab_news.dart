@@ -38,7 +38,7 @@ class _NewsTabState extends State<NewsTab> {
       });
     }
   }
-
+  
   // Функция показа диалога добавления новости
   Future<void> _showAddNewsDialog() async {
     final TextEditingController titleController = TextEditingController();
