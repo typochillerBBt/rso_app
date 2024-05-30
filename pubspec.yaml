@@ -64,8 +64,6 @@ flutter:
     - assets/kro_logo.png
     - assets/kro_logo_white.png
     - assets/rso_bg.png
-    - assets/about_us/about_us1.jpg
-    - assets/about_us/history1.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
