@@ -1,11 +1,9 @@
 import 'dart:io';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class NewsTab extends StatefulWidget {
   const NewsTab({Key? key}) : super(key: key);
@@ -105,12 +103,12 @@ class _NewsTabState extends State<NewsTab> {
                             UploadTask task = ref.putFile(file);
                             final snapshot = await task.whenComplete(() {});
                             final String url = await snapshot.ref.getDownloadURL();
-                            print("Image URL: $url"); // Вывод URL в консоль
+                            print("Image URL: $url");
                             setState(() {
                               uploadedImageUrl = url;
                             });
                           } catch (e) {
-                            print("Error uploading image: $e"); // Вывод ошибки в консоль
+                            print("Error uploading image: $e");
                           }
                         }
                       }
@@ -206,17 +204,17 @@ class _NewsTabState extends State<NewsTab> {
             elevation: 0,
           ),
           body: Dismissible(
-            key: Key(imageUrl),  // Уникальный ключ для Dismissible
-            direction: DismissDirection.vertical, // Разрешить свайп только в вертикальном направлении
+            key: Key(imageUrl),
+            direction: DismissDirection.vertical,
             onDismissed: (direction) {
-              Navigator.of(context).pop();  // Закрыть изображение при свайпе
+              Navigator.of(context).pop();
             },
             child: Center(
               child: InteractiveViewer(
-                panEnabled: true, // Включить панорамирование
-                scaleEnabled: true, // Включить масштабирование
-                minScale: 0.1,  // Минимальный масштаб
-                maxScale: 4,  // Максимальный масштаб
+                panEnabled: true,
+                scaleEnabled: true,
+                minScale: 0.1,
+                maxScale: 4,
                 child: Image.network(
                   imageUrl,
                   fit: BoxFit.contain,
@@ -357,7 +355,7 @@ class _NewsTabState extends State<NewsTab> {
     var doc = await docRef.get();
     if (doc.exists) {
       Map<String, dynamic>? lastDeletedNews =
-      doc.data() as Map<String, dynamic>?;
+      doc.data();
       await docRef.delete();
       _showUndoSnackbar(docId, lastDeletedNews);
     }
@@ -368,12 +366,12 @@ class _NewsTabState extends State<NewsTab> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Container(
-          height: 50, // Устанавливаем желаемую высоту
+          height: 50,
           child: const Center(
             child: Text(
               "Вы успешно удалили запись",
               style: TextStyle(
-                  fontSize: 16), // Опционально, можно увеличить размер шрифта
+                  fontSize: 16),
             ),
           ),
         ),
